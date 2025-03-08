@@ -1,0 +1,17 @@
+# Ignore virtual environments
+.venv/
+
+# Ignore output files
+output/
+
+# Ignore temporary Python files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore system files
+.DS_Store
+
+# Ignore Git metadata (should not be deleted but not committed manually)
+.git/
