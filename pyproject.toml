@@ -1,5 +1,5 @@
 [project]
-name = "pubmed-fetcher"
+name = "pubmed-fetcher_geetha"
 version = "0.1.0"
 description = "Fetch research papers from PubMed"
 authors = [
@@ -17,8 +17,8 @@ dependencies = [
 [tool.poetry]
 packages = [{include = "pubmed_fetcher", from = "src"}]
 
-[tool.poetry.scripts]
-get-papers-list = "pubmed_fetcher.cli:main"
+[project.scripts]
+get-papers-list = "pubmed_fetcher.main:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
