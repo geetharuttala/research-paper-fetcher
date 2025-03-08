@@ -7,7 +7,7 @@ from io import StringIO
 
 Entrez.email = "geetharuttala0106@gmail.com"
 
-def fetch_pubmed_papers(query: str, max_results: int = 1000, debug: bool = False) -> List[Dict]:
+def fetch_pubmed_papers(query: str, max_results: int = 5000, debug: bool = False) -> List[Dict]:
     """
     Fetches research papers from PubMed based on the given query.
 

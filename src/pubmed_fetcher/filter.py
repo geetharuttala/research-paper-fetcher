@@ -1,18 +1,26 @@
 import re
 from typing import List, Dict
 
-# List of known non-academic email domains
+# Non-academic email domains
 NON_ACADEMIC_DOMAINS = {"gmail.com", "yahoo.com", "hotmail.com", "outlook.com", "aol.com", "protonmail.com"}
 
-# Keywords to identify companies in affiliations (expanded for accuracy)
+# Academic keywords (including common variations)
+ACADEMIC_KEYWORDS = {
+    r"\bUniversity\b", r"\bUniversit[a-z]*\b", r"\bCollege\b", r"\bSchool of\b", r"\bAcademy\b",
+    r"\bFaculty of\b", r"\bDepartment of\b", r"\bInstitute of Technology\b", r"\bMedical School\b",
+    r"\bTeaching Hospital\b", r"\bUniversitario\b"
+}
+
+# Company-related keywords
 COMPANY_KEYWORDS = {
-    "Inc", "Ltd", "Corp", "Pharma", "Technologies", "Solutions", "LLC", "Consulting", 
-    "Biotech", "Laboratories", "Diagnostics", "Therapeutics", "Research Institute", "Biosciences"
+    r"\bInc\b", r"\bLtd\b", r"\bCorp\b", r"\bPharma\b", r"\bTechnologies\b", r"\bSolutions\b", r"\bLLC\b",
+    r"\bConsulting\b", r"\bBiotech\b", r"\bLaboratories\b", r"\bDiagnostics\b", r"\bTherapeutics\b",
+    r"\bBiosciences\b", r"\bResearch Institute\b"
 }
 
 def is_company_affiliation(affiliation: str) -> bool:
     """
-    Determines if an affiliation belongs to a company based on keywords.
+    Determines if an affiliation belongs to a company while excluding academic institutions.
 
     Args:
         affiliation (str): Author's affiliation.
@@ -23,7 +31,12 @@ def is_company_affiliation(affiliation: str) -> bool:
     if not affiliation or affiliation == "N/A":
         return False
 
-    return any(keyword.lower() in affiliation.lower() for keyword in COMPANY_KEYWORDS)
+    # ✅ Check for academic institutions (match variations like "Universiti", "Universitario")
+    if any(re.search(keyword, affiliation, re.IGNORECASE) for keyword in ACADEMIC_KEYWORDS):
+        return False  # Exclude academic affiliations
+
+    # ✅ Check if it's a company-affiliated research institute
+    return any(re.search(keyword, affiliation, re.IGNORECASE) for keyword in COMPANY_KEYWORDS)
 
 def extract_non_academic_authors(authors: List[str], affiliations: List[str]) -> List[str]:
     """
