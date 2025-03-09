@@ -1,6 +1,6 @@
 [project]
 name = "pubmed-fetcher_geetha"
-version = "0.1.0"
+version = "0.1.1"
 description = "Fetch research papers from PubMed"
 authors = [
     {name = "geetharuttala", email = "geetharuttala0106@gmail.com"}
