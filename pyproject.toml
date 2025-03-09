@@ -18,7 +18,7 @@ dependencies = [
 packages = [{include = "pubmed_fetcher", from = "src"}]
 
 [project.scripts]
-get-papers-list = "pubmed_fetcher.main:main"
+get-papers-list = "pubmed_fetcher.cli:main"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^8.3.5"
