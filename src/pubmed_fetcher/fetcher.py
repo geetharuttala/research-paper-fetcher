@@ -18,10 +18,10 @@ def fetch_pubmed_papers(query: str, max_results: int = 2000, debug: bool = False
     Returns:
         List[Dict]: A list of parsed research papers.
     """
-    try:
-        if not query.strip():
+    if not query.strip():
             raise ValueError("Query cannot be empty.")
         
+    try:   
         if debug:
             print(f"🔍 Debug: Searching PubMed for '{query}' with max_results={max_results}")
 
