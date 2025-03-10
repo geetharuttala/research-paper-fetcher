@@ -21,7 +21,10 @@ pubmed_fetcher/
 │   │   ├── fetcher.py    # Fetches data from PubMed  
 │   │   ├── filter.py     # Filters non-academic authors  
 │── tests/
-│   ├── __init__.py       # Test cases (to be added)  
+│   ├── __init__.py       # Test cases  
+│   ├── test_cli.py       # Tests CLI functionality  
+│   ├── test_fetcher.py   # Tests fetching logic  
+│   ├── test_filter.py    # Tests filtering logic  
 │── pyproject.toml        # Dependency and project config  
 │── README.md             # Documentation  
 ```
@@ -84,13 +87,22 @@ get-papers-list "breast cancer" -f output.csv
 
 
 
-## **Technologies & Libraries Used**  
+## **Testing**
+The project includes **unit tests** to ensure functionality. To run the tests:
+```powershell
+pytest
+```
+This will execute tests from the `tests/` directory.
 
-- **[Biopython](https://biopython.org/)** – Fetches research papers from PubMed.  
-- **[Pandas](https://pandas.pydata.org/)** – Processes and structures data in CSV format.  
-- **[Requests](https://docs.python-requests.org/en/latest/)** – Handles API requests.  
-- **[Click](https://click.palletsprojects.com/)** – Implements command-line functionalities.  
-- **[Poetry](https://python-poetry.org/)** – Manages dependencies.  
+---
+
+## **Tools and Libraries Used**  
+- **[Poetry](https://python-poetry.org/)** – Manages dependencies and packaging.  
+- **[pytest](https://docs.pytest.org/)** – For running test cases.  
+- **[requests](https://docs.python-requests.org/)** – Handles API requests to fetch research papers.  
+- **[argparse](https://docs.python.org/3/library/argparse.html)** – Parses command-line arguments.  
+- **[csv](https://docs.python.org/3/library/csv.html)** – Handles CSV file operations.  
+- **[re](https://docs.python.org/3/library/re.html)** – Used for filtering non-academic authors based on heuristics.  
 
 
 
