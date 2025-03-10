@@ -94,7 +94,7 @@ pytest
 ```
 This will execute tests from the `tests/` directory.
 
----
+
 
 ## **Tools and Libraries Used**  
 - **[Poetry](https://python-poetry.org/)** – Manages dependencies and packaging.  
