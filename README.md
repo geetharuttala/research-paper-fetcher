@@ -48,7 +48,7 @@ pip install --index-url https://test.pypi.org/simple/ --extra-index-url https://
 Alternatively, you can clone the repository and install dependencies manually.  
 
 ```powershell
-git clone https://github.com/<your-username>/pubmed_fetcher.git
+git clone https://github.com/<geetharuttala>/pubmed_fetcher.git
 cd pubmed_fetcher
 poetry install
 ```
